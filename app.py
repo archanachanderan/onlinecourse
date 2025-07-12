@@ -138,7 +138,6 @@ def result(course_id):
     cursor.execute('SELECT * FROM enrollments WHERE student_id = %s AND course_id = %s',
                    (session['student_id'], course_id))
     result = cursor.fetchone()
-    cursor.close()
     conn.close()
     return render_template('result.html', result=result, course_id=course_id)
 
