@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Payment</title>
+</head>
+<body>
+  <div class="form-box">
+  <h2>Payment</h2>
+  <form method="POST">
+    <p>Amount: ₹100</p>
+    <center><button type="submit">Pay</button></center>
+  </form>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </div>
+</body>
+</html>

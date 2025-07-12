@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+    <div class="form-box">
+  <h2>Student Login</h2>
+  <form method="POST">
+    Email: <input type="email" name="email" required><br>
+    Password: <input type="password" name="password" required><br>
+    <center><button type="submit">Login</button></center>
+  </form>
+  <br>
+  <center><a href="/register">Don't have an account? Register</a></center>
+  <br><br>
+  <hr>
+  <h3><center>Are you an Admin?</center></h3>
+  <center><a href="/admin/login">Login as Admin</a></center>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </div>
+</body>
+</html>

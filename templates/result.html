@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Result</title>
+</head>
+<body>
+  <div class="form-box">
+  <h2>Exam Result</h2>
+  <p>Status: {{ result.status }}</p>
+  <p>Score: {{ result.score }}/5</p>
+  {% if result.status == 'Passed' %}
+    <p><a href="/certificate/{{ course_id }}">Download Certificate</a></p>
+  {% endif %}
+  <p><br><a href="/dashboard">Back to Dashboard</a></p>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </div>
+</body>
+</html>

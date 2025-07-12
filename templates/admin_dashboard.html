@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+
+
+    <h2>Courses</h2>
+    
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Case Study PDF</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.id }}</td>
+                <td>{{ course.title }}</td>
+                <td>{{ course.description }}</td>
+                <td>
+                    {% if course.case_study_pdf %}
+                        <a href="{{ url_for('static', filename='case_studies/' + course.case_study_pdf) }}" target="_blank">View PDF</a>
+                    {% else %}
+                        No PDF
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('admin_edit_course', course_id=course.id) }}">Edit</a> |
+                    <a href="{{ url_for('admin_delete_course', course_id=course.id) }}" onclick="return confirm('Are you sure you want to delete this course?')">Delete</a> |
+                    <a href="{{ url_for('admin_manage_questions', course_id=course.id) }}">Manage Questions</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p></p>
+    <center><a href="{{ url_for('admin_add_course') }}">Add New Course</a>   <a href="{{ url_for('admin_logout') }}">Logout</a></p></center>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

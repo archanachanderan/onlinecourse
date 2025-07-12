@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Manage Questions</title>
+</head>
+<body>
+    <h2>Manage Questions for {{ course.title }}</h2>
+
+    <h3>Add New Question</h3>
+    <form method="POST">
+        <label>Question:</label><br>
+        <textarea name="question" required></textarea><br><br>
+
+        <label>Option 1:</label><br>
+        <input type="text" name="option1" required><br>
+
+        <label>Option 2:</label><br>
+        <input type="text" name="option2" required><br>
+
+        <label>Option 3:</label><br>
+        <input type="text" name="option3" required><br>
+
+        <label>Option 4:</label><br>
+        <input type="text" name="option4" required><br>
+
+        <label>Correct Option:</label><br>
+        <input type="text" name="correct_option" required><br><br>
+
+        <input type="submit" value="Add Question">
+    </form>
+
+    <hr>
+
+    <h3>Existing Questions</h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Correct Option</th>
+            <th>Action</th>
+        </tr>
+        {% for q in questions %}
+        <tr>
+            <td>{{ q.id }}</td>
+            <td>{{ q.question }}</td>
+            <td>{{ q.correct_option }}</td>
+            <td>
+                <a href="{{ url_for('admin_delete_question', course_id=course.id, question_id=q.id) }}" onclick="return confirm('Delete this question?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

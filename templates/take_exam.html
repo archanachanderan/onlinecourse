@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Exam</title>
+</head>
+<body>
+  <h2>Exam</h2>
+  <form method="POST">
+    {% for q in questions %}
+      <h4><strong>{{ q.question }}</strong></h4>
+      <input type="radio" name="q{{ q.id }}" value="{{ q.option1 }}"> {{ q.option1 }}<br>
+      <input type="radio" name="q{{ q.id }}" value="{{ q.option2 }}"> {{ q.option2 }}<br>
+      <input type="radio" name="q{{ q.id }}" value="{{ q.option3 }}"> {{ q.option3 }}<br>
+      <input type="radio" name="q{{ q.id }}" value="{{ q.option4 }}"> {{ q.option4 }}<br>
+    {% endfor %}
+    <center><button type="submit">Submit</button></center>
+  </form>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

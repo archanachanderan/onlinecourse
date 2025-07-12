@@ -1,0 +1,84 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form textarea,
+form select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+}
+
+button, input[type="submit"] {
+    background-color: sienna;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    width: 100px;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 400px;  /* Makes the box smaller */
+    margin: 80px auto; /* Centers vertically with top margin */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: saddlebrown;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    background-color: sienna;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: saddlebrown;
+}
+
+p {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 300px;
+}
+

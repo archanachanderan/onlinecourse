@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h2>Welcome, {{ session.name }}</h2>
+  <h3><center>Available Courses</center></h3>
+  <ul>
+    {% for course in courses %}
+    <div class="form-box">
+      <li>
+        <strong>{{ course.title }}</strong><br>
+        {{ course.description }}<br>
+        <p><a href="/static/case_studies/{{ course.case_study_pdf }}" download>Download Case Study</a><br></p>
+        <form action="/enroll" method="POST">
+          <input type="hidden" name="course_id" value="{{ course.id }}">
+          <p><button type="submit">Enroll</button></p>
+        </form>
+      </li>
+    </div>
+    {% endfor %}
+  </ul>
+  <p><a href="/logout">Logout</a></p>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
